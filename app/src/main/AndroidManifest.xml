@@ -38,5 +38,11 @@
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
         </service>
+        <receiver android:name=".services.AccionesWear">
+            <intent-filter>
+                <action android:name="VER_PERFIL" />
+                <action android:name="IR_MASCOTAS"/>
+            </intent-filter>
+        </receiver>
     </application>
 </manifest>

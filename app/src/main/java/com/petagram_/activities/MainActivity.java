@@ -39,11 +39,11 @@ import static android.app.ActionBar.*;
 
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
-    private TabLayout tabLayout;
+    private static TabLayout tabLayout;
     private ViewPager viewPager;
     private String cuenta = "";
 
-    @SuppressLint("WrongConstant")
+    @SuppressLint({"WrongConstant", "ResourceType"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
         setUpViewPager();
-
-
 
         ImageButton btnFavorito = (ImageButton) findViewById(R.id.btnFavorito2);
         btnFavorito.setOnClickListener(new View.OnClickListener() {
@@ -148,8 +146,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(MainActivity.this, MascotasFavoritas.class);
         startActivity(intent);
         finish();
-
-
     }
 
     private void setUpViewPager(){
@@ -186,5 +182,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "No fue posible conectarse al servicio de registro de usuario" , Toast.LENGTH_LONG).show();
             }
         });
+    }
+    public static void seleccionarPerfil(int tab){
+        tabLayout.getTabAt(tab).select();
     }
 }
